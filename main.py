@@ -5,6 +5,7 @@ import zipfile
 
 
 st.markdown("# Panorama converter. Cylindrical to spherical")
+st.markdown("Actually, just adds black stripes to the image")
 st.image("demonstration.png")
 uploaded_files = st.file_uploader("Upload images", type=['jpg', 'jpeg', 'png'], accept_multiple_files=True)
 bordered_images = []
