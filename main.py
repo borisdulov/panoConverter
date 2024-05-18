@@ -10,6 +10,7 @@ st.image("demonstration.png")
 uploaded_files = st.file_uploader("Upload images", type=['jpg', 'jpeg', 'png'], accept_multiple_files=True)
 bordered_images = []
 stripes_width = st.slider('Stripes width in % of image', min_value=0.0, max_value=200.0, value=100.0, step=1.0) / 100
+color = st.color_picker('Stripes color', '#000000')
 
 if uploaded_files is not None:
     st.markdown("Scroll down for the dowload button") 
@@ -18,7 +19,7 @@ if uploaded_files is not None:
         img = Image.open(io.BytesIO(image_data))
 
         stripes = int(img.size[1] * stripes_width)
-        bord = ImageOps.expand(img, border=(0, stripes, 0, stripes), fill="black")
+        bord = ImageOps.expand(img, border=(0, stripes, 0, stripes), fill=color)
         bordered_images.append((uploaded_file.name, bord))
         st.image(bord)
     
